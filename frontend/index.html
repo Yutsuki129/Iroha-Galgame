@@ -23,36 +23,42 @@
 <body>
   <h1>我的青春戀愛喜劇果然有問題 V1.0</h1>
   <p>你將扮演比企谷八幡，跟一色伊呂波互動，另外我有設告白事件，好感度達到一定值，你的告白就會成功，可以跟伊呂波交往，不過我不會告訴你是多少，呵呵呵~</p>
-  <p>好感度高低會影響伊呂波對你的態度，還有許多隱藏功能等你來發現，而且我沒有設置回朔，請認真對待每一次互動~</p>
+  <p>好感度高低會影響伊呂波對你的態度，還有許多隱藏功能等你來發現，而且我沒有設置回溯，請認真對待每一次互動~</p>
   <p>(備註：每日伺服器維護或更新時間大概在2200~2400，另外還有後端連接的問題，第一次回復時間可能會稍慢)</p>
-  
+   
   <br>
   <div id="status-bar">
-  <strong>玩家：</strong>比企谷八幡 |
-  <strong>角色：</strong>一色伊呂波 | 
-  <strong>好感度：</strong><span id="affinity-display">50</span>
-  <span id="affinity-delta"></span>
-  <!-- 好感度達 100 時由 JS 自動解鎖顯示 -->
+    <strong>玩家：</strong>比企谷八幡 |
+    <strong>角色：</strong>一色伊呂波 | 
+    <strong>好感度：</strong><span id="affinity-display">40</span>
+    <span id="affinity-delta"></span>
+    <!-- 好感度達 150 時由 JS 自動解鎖顯示 -->
     <span id="lust-container" style="display: none;">
       | <strong>性慾值：</strong><span id="lust-display">0</span>
       <span id="lust-delta"></span>
     </span>
+    <!-- 重置存檔按鈕收納在狀態列旁 -->
+     <button onclick="resetGame()" class="reset-btn" title="清空進度並重新開始" style="margin-left: 12px; font-size: 0.8rem; cursor: pointer; opacity: 0.85;">
+  重製遊戲</button>
   </div>
-
   <div class="lang-selector">
-  <label for="language-select">🗣️ 語言 / Language:</label>
-  <select id="language-select">
-    <option value="繁體中文" selected>繁體中文</option>
-    <option value="日本語">日本語</option>
-    <option value="English">English</option>
-    <option value="한국어">한국어</option>
-  </select>
-</div>
+    <label for="language-select">🗣️ 語言 / Language:</label>
+    <select id="language-select" onchange="saveGameState()">
+      <option value="繁體中文" selected>繁體中文</option>
+      <option value="日本語">日本語</option>
+      <option value="English">English</option>
+      <option value="한국어">한국어</option>
+    </select>
+  </div>
 
   <div id="chat-box"></div>
 
   <div class="input-row">
-    <textarea id="user-input" placeholder="說點什麼..." rows="2"></textarea>
+    <textarea 
+      id="user-input" 
+      placeholder="說點什麼... " 
+      rows="2"
+      onkeydown="if(event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); handleSend(); }"></textarea>
     <button id="send-btn" onclick="handleSend()">發送</button>
   </div>
 
