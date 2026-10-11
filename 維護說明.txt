@@ -1,0 +1,19 @@
+git add .
+git commit -m "更新說明（例如：新增第三章對話事件）"
+git push
+
+自動部署生效：
+
+改前端：Vercel 偵測到推送，約 10~20 秒 就會自動更新線上網頁。
+改後端：Render 偵測到推送，約 2~3 分鐘 會自動重構並重新上線。
+
+二、本地開發與除錯流程（建議習慣）
+不要每次改一兩行字就直接推上線測試，建議先在本地測好再推：
+
+切換到前端測試本機端 API（可選）：
+如果要在本地測試後端，把 frontend/script.js 暫時切換回 http://localhost:8000/api/chat。
+在終端機進入 backend 目錄執行：
+cd..
+cd WEB-CHAR
+cd backend
+python -m uvicorn main:app --reload
