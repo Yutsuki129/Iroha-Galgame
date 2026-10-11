@@ -6,7 +6,7 @@ let currentAffinity = 40;
 let currentLust = 0; // 新增：性慾值狀態
 let triggeredEvents = [];
 
-const BACKEND_URL = "http://localhost:8000/api/chat";
+const BACKEND_URL = "https://iroha-galgame.onrender.com/api/chat";
 
 // ==================== 2. 發送對話處理函式 ====================
 async function handleSend() {
