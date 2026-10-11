@@ -1,0 +1,9 @@
+# 忽略後端虛擬環境與快取
+__pycache__/
+*.pyc
+venv/
+.env
+
+# 忽略系統或編輯器暫存
+.vscode/
+.DS_Store
