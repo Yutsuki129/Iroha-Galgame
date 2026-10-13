@@ -239,7 +239,7 @@ async def chat_endpoint(req: ChatRequest):
     }
 
     payload = {
-        "model": "deepseek/deepseek-chat",
+        "model": "deepseek/deepseek-chat-v3.1",
         "messages": payload_messages,
         "tools": tools,
         "tool_choice": {"type": "function", "function": {"name": "update_state"}},
